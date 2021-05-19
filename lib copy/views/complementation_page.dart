@@ -28,26 +28,27 @@ class _ComplementationPageState extends State<ComplementationPage> {
           borderRadius: BorderRadius.all(
             Radius.circular(40),
           ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.centerLeft,
-          //   end: Alignment.centerRight,
-          //   colors: [
-          //     Colors.white.withOpacity(1),
-          //     Colors.white.withOpacity(0.9),
-          //     Colors.white.withOpacity(0.6),
-          //     Colors.white.withOpacity(0),
-          //   ],
-          // ),
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [
+              Colors.white.withOpacity(1),
+              Colors.white.withOpacity(0.9),
+              Colors.white.withOpacity(0.6),
+              Colors.white.withOpacity(0),
+            ],
+          ),
         ),
         margin: EdgeInsets.fromLTRB(
-            constraints.maxWidth > 1200 ? 96 : 32, 32, 32, 100),
+            constraints.maxWidth > 1200 ? 96 : 32, 32, 32, 128),
         padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
-        width: 364,
-        height: constraints.maxWidth > 1200 ? 500 : 300,
+        width: constraints.maxWidth > 760 ? 696 : 364,
+        height: constraints.maxWidth > 1200 ? 533 : 300,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 32),
               SizedBox(
                 width: 300,
                 child: Column(
@@ -118,9 +119,11 @@ class _ComplementationPageState extends State<ComplementationPage> {
                         fontSize: 16,
                       ),
                     ),
+                    SizedBox(height: 32),
                   ],
                 ),
               ),
+              SizedBox(height: 32),
             ],
           ),
         ),
@@ -144,7 +147,7 @@ class _ComplementationPageState extends State<ComplementationPage> {
             children: [
               Positioned.fill(
                 child: DelayedDisplay(
-                  delay: Duration(milliseconds: 1000),
+                  delay: Duration(milliseconds: 0),
                   fadingDuration: Duration(milliseconds: 500),
                   slidingBeginOffset: Offset(0, -0.1),
                   child: Image.asset(
@@ -160,36 +163,33 @@ class _ComplementationPageState extends State<ComplementationPage> {
                     Positioned(
                       right: 0,
                       top: MediaQuery.of(context).size.height / 6,
-                      child: DelayedDisplay(
-                        delay: Duration(milliseconds: 1000),
-                        child: InkWell(
-                          onTap: () {},
-                          onHover: (value) {
-                            setState(() {
-                              isHoverImageCable = value;
-                            });
-                          },
-                          child: AnimatedContainer(
-                            padding: EdgeInsets.all(isHoverImageCable ? 0 : 32),
-                            duration: Duration(milliseconds: 250),
-                            height: constraints.maxWidth > 900
-                                ? isHoverImageCable
-                                    ? MediaQuery.of(context).size.height / 1.55
-                                    : MediaQuery.of(context).size.height / 1.6
-                                : isHoverImageCable
-                                    ? MediaQuery.of(context).size.width / 1.55
-                                    : MediaQuery.of(context).size.width / 1.6,
-                            width: constraints.maxWidth > 900
-                                ? isHoverImageCable
-                                    ? MediaQuery.of(context).size.height / 1.55
-                                    : MediaQuery.of(context).size.height / 1.6
-                                : isHoverImageCable
-                                    ? MediaQuery.of(context).size.width / 1.55
-                                    : MediaQuery.of(context).size.width / 1.6,
-                            child: Image.asset(
-                              widget.product.imageCable,
-                              fit: BoxFit.cover,
-                            ),
+                      child: InkWell(
+                        onTap: () {},
+                        onHover: (value) {
+                          setState(() {
+                            isHoverImageCable = value;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          padding: EdgeInsets.all(isHoverImageCable ? 0 : 32),
+                          duration: Duration(milliseconds: 250),
+                          height: constraints.maxWidth > 900
+                              ? isHoverImageCable
+                                  ? MediaQuery.of(context).size.height / 1.55
+                                  : MediaQuery.of(context).size.height / 1.6
+                              : isHoverImageCable
+                                  ? MediaQuery.of(context).size.width / 1.55
+                                  : MediaQuery.of(context).size.width / 1.6,
+                          width: constraints.maxWidth > 900
+                              ? isHoverImageCable
+                                  ? MediaQuery.of(context).size.height / 1.55
+                                  : MediaQuery.of(context).size.height / 1.6
+                              : isHoverImageCable
+                                  ? MediaQuery.of(context).size.width / 1.55
+                                  : MediaQuery.of(context).size.width / 1.6,
+                          child: Image.asset(
+                            widget.product.imageCable,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -197,36 +197,33 @@ class _ComplementationPageState extends State<ComplementationPage> {
                     Positioned(
                       right: MediaQuery.of(context).size.width / 6,
                       top: MediaQuery.of(context).size.height / 5,
-                      child: DelayedDisplay(
-                        delay: Duration(milliseconds: 1400),
-                        child: InkWell(
-                          onTap: () {},
-                          onHover: (value) {
-                            setState(() {
-                              isHoverImageBox = value;
-                            });
-                          },
-                          child: AnimatedContainer(
-                            padding: EdgeInsets.all(isHoverImageBox ? 0 : 32),
-                            duration: Duration(milliseconds: 250),
-                            height: constraints.maxWidth > 900
-                                ? isHoverImageBox
-                                    ? MediaQuery.of(context).size.height / 1.55
-                                    : MediaQuery.of(context).size.height / 1.6
-                                : isHoverImageBox
-                                    ? MediaQuery.of(context).size.width / 1.55
-                                    : MediaQuery.of(context).size.width / 1.6,
-                            width: constraints.maxWidth > 900
-                                ? isHoverImageBox
-                                    ? MediaQuery.of(context).size.height / 1.55
-                                    : MediaQuery.of(context).size.height / 1.6
-                                : isHoverImageBox
-                                    ? MediaQuery.of(context).size.width / 1.55
-                                    : MediaQuery.of(context).size.width / 1.6,
-                            child: Image.asset(
-                              widget.product.imageBox,
-                              fit: BoxFit.cover,
-                            ),
+                      child: InkWell(
+                        onTap: () {},
+                        onHover: (value) {
+                          setState(() {
+                            isHoverImageBox = value;
+                          });
+                        },
+                        child: AnimatedContainer(
+                          padding: EdgeInsets.all(isHoverImageBox ? 0 : 32),
+                          duration: Duration(milliseconds: 250),
+                          height: constraints.maxWidth > 900
+                              ? isHoverImageBox
+                                  ? MediaQuery.of(context).size.height / 1.55
+                                  : MediaQuery.of(context).size.height / 1.6
+                              : isHoverImageBox
+                                  ? MediaQuery.of(context).size.width / 1.55
+                                  : MediaQuery.of(context).size.width / 1.6,
+                          width: constraints.maxWidth > 900
+                              ? isHoverImageBox
+                                  ? MediaQuery.of(context).size.height / 1.55
+                                  : MediaQuery.of(context).size.height / 1.6
+                              : isHoverImageBox
+                                  ? MediaQuery.of(context).size.width / 1.55
+                                  : MediaQuery.of(context).size.width / 1.6,
+                          child: Image.asset(
+                            widget.product.imageBox,
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -455,8 +452,8 @@ class _ComplementationPageState extends State<ComplementationPage> {
                   padding: EdgeInsets.fromLTRB(
                       constraints.maxWidth > 750 ? 128 : 32,
                       0,
-                      constraints.maxWidth > 750 ? 128 : 0,
-                      constraints.maxWidth > 750 ? 0 : 16),
+                      constraints.maxWidth > 750 ? 128 : 32,
+                      constraints.maxWidth > 750 ? 64 : 32),
                   child: Container(
                     height: 56,
                     child: Row(
@@ -546,7 +543,7 @@ class _ComplementationPageState extends State<ComplementationPage> {
                   : Align(
                       alignment: Alignment.bottomCenter,
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: 70),
+                        padding: const EdgeInsets.only(bottom: 128),
                         child: RotatedBox(
                           quarterTurns: 1,
                           child: Image.asset(

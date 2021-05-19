@@ -5,19 +5,17 @@ import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
 import 'package:delayed_display/delayed_display.dart';
 
 class ProductCard extends StatefulWidget {
-  ProductCard({
-    this.productsList,
-    this.index,
-    this.currentIndex,
-    this.onTapNext,
-    this.onTapPrevious,
-    this.width,
-    this.isEnabled,
-  }); //this.currentIndex,
+  ProductCard(
+      {this.productsList,
+      this.index,
+      this.currentIndex,
+      this.onTapNext,
+      this.onTapPrevious,
+      this.width}); //this.currentIndex,
   final List<ProductModel> productsList;
   final int index;
   final int currentIndex;
-  bool isEnabled;
+  // bool isEnabled;
   VoidCallback onTapPrevious;
   VoidCallback onTapNext;
   final double width;
@@ -43,7 +41,7 @@ class _ProductCardState extends State<ProductCard> {
   Image image15;
   Image imagebg;
   Image imagebg2;
-  // bool widget.isEnabled = true;
+  bool isEnabled = true;
   bool isHover = false;
   bool isHoverPrevious = false;
   bool isHoverNext = false;
@@ -53,7 +51,7 @@ class _ProductCardState extends State<ProductCard> {
     super.initState();
     // Future.delayed(Duration(milliseconds: 1201)).then((value) {
     //   setState(() {
-    //     widget.isEnabled = true;
+    //     isEnabled = true;
     //   });
     // });
     image1 = Image.asset(widget.productsList[0].image);
@@ -80,7 +78,7 @@ class _ProductCardState extends State<ProductCard> {
     super.didChangeDependencies();
     // Future.delayed(Duration(milliseconds: 1201)).then((value) {
     //   setState(() {
-    //     widget.isEnabled = true;
+    //     isEnabled = true;
     //   });
     // });
     precacheImage(image1.image, context);
@@ -102,16 +100,16 @@ class _ProductCardState extends State<ProductCard> {
     precacheImage(imagebg2.image, context);
   }
 
-  // waitToPressAgain() {
-  //   setState(() {
-  //     widget.isEnabled = false;
-  //   });
-  //   Future.delayed(Duration(milliseconds: 1201)).then((value) {
-  //     setState(() {
-  //       widget.isEnabled = true;
-  //     });
-  //   });
-  // }
+  waitToPressAgain() {
+    setState(() {
+      isEnabled = false;
+    });
+    Future.delayed(Duration(milliseconds: 1201)).then((value) {
+      setState(() {
+        isEnabled = true;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,9 +122,7 @@ class _ProductCardState extends State<ProductCard> {
           duration: Duration(milliseconds: 0),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.height,
-          child: widget.currentIndex == widget.index ||
-                  widget.currentIndex == widget.index - 1 ||
-                  widget.currentIndex - widget.productsList.length == widget.index - 1
+          child: widget.currentIndex == widget.index
               ? Hero(
                   tag: widget.productsList[widget.index].id,
                   child: Image.asset(
@@ -154,20 +150,20 @@ class _ProductCardState extends State<ProductCard> {
             children: [
               Expanded(
                 child: InkWell(
-                  onHover: widget.isEnabled
+                  onHover: isEnabled
                       ? (value) {
                           setState(() {
                             isHoverPrevious = value;
                           });
                         }
                       : (value) {},
-                  onTap: widget.isEnabled
+                  onTap: isEnabled
                       ? () {
                           setState(() {
                             isHoverPrevious = false;
                           });
                           widget.onTapPrevious();
-                          // waitToPressAgain();
+                          waitToPressAgain();
                         }
                       : () {},
                   child: isHoverPrevious
@@ -194,20 +190,20 @@ class _ProductCardState extends State<ProductCard> {
               ),
               Expanded(
                 child: InkWell(
-                  onHover: widget.isEnabled
+                  onHover: isEnabled
                       ? (value) {
                           setState(() {
                             isHoverNext = value;
                           });
                         }
                       : (value) {},
-                  onTap: widget.isEnabled
+                  onTap: isEnabled
                       ? () {
                           setState(() {
                             isHoverNext = false;
                           });
                           widget.onTapNext();
-                          // waitToPressAgain();
+                          waitToPressAgain();
                         }
                       : () {},
                   child: isHoverNext

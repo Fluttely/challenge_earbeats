@@ -1,13 +1,25 @@
 import "package:flutter/material.dart";
 import "dart:ui";
 import "package:flutter_card_swipper/flutter_card_swiper.dart";
+// import 'package:kevinkobori_challenge_earbeats/utils/remottely_icons_icons.dart';
 import "package:kevinkobori_challenge_earbeats/widgets/product_card.dart";
+// import "package:flutter_svg/flutter_svg.dart";
 import "package:flutter_neumorphic/flutter_neumorphic.dart";
+// import "package:visibility_detector/visibility_detector.dart";
 import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
 import "package:kevinkobori_challenge_earbeats/utils/consts.dart";
 import "package:kevinkobori_challenge_earbeats/providers/product_provider.dart";
+// import 'package:flutter_cursor/flutter_cursor.dart';
+// import 'package:kevinkobori_challenge_earbeats/views/body_container.dart';
 import 'package:delayed_display/delayed_display.dart';
+// import "package:flutter/material.dart";
+// import "dart:ui";
+// import "package:flutter_neumorphic/flutter_neumorphic.dart";
+// import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
+// import "package:kevinkobori_challenge_earbeats/utils/consts.dart";
 import "package:kevinkobori_challenge_earbeats/views/details_page.dart";
+// import "package:kevinkobori_challenge_earbeats/widgets/circle_blur_painter.dart";
+// import "package:kevinkobori_challenge_earbeats/views/complementation_page.dart";
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,12 +32,17 @@ class _HomePageState extends State<HomePage> {
   List<ProductModel> productsList = ProductsState().categoryPS5Controls;
   int indexPage = 0;
   int indexType = 0;
+  // int _swiperController.index = 0;
   bool isEnabled = true;
   bool isHover = false;
   bool isHoverPrevious = false;
   bool isHoverNext = false;
   @override
   void initState() {
+    // setState(() {
+    //   _swiperController.index = 0;
+    //   isEnabled = true;
+    // });
     _swiperController.move(0);
     super.initState();
   }
@@ -71,16 +88,16 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.all(
             Radius.circular(40),
           ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.centerLeft,
-          //   end: Alignment.centerRight,
-          //   colors: [
-          //     Colors.white.withOpacity(0),
-          //     Colors.white.withOpacity(0.6),
-          //     Colors.white.withOpacity(0.9),
-          //     Colors.white.withOpacity(1),
-          //   ],
-          // ),
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [
+              Colors.white.withOpacity(0),
+              Colors.white.withOpacity(0.6),
+              Colors.white.withOpacity(0.9),
+              Colors.white.withOpacity(1),
+            ],
+          ),
         ),
         margin: EdgeInsets.fromLTRB(
             32, 32, constraints.maxWidth > 1200 ? 96 : 32, 64),
@@ -97,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 28,
                 fontWeight: FontWeight.w900,
               ),
-            ),
+            ), //logo
             SizedBox(
               height: 6,
             ),
@@ -119,6 +136,7 @@ class _HomePageState extends State<HomePage> {
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
+                // fontWeight: FontWeight.w500,
                 fontSize: 16,
               ),
             ),
@@ -212,12 +230,15 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     color: Colors.transparent,
                     child: Swiper(
+                      // autoplay: true,
                       onIndexChanged: (index) {
                         setState(() {
+                          // _swiperController.index = index;
                           _swiperController.index = index;
+                          // _swiperController.config.activeIndex;
                         });
+                        // print(_swiperController.index);
                       },
-                      physics: const NeverScrollableScrollPhysics(),
                       layout: SwiperLayout.STACK,
                       itemHeight: constraints.maxWidth > 900
                           ? MediaQuery.of(context).size.height / 1.2
@@ -238,7 +259,7 @@ class _HomePageState extends State<HomePage> {
                               onTapNext: () => onTapNext(),
                               currentIndex: _swiperController.index,
                               width: 230,
-                              isEnabled: isEnabled,
+                              // isEnabled: isEnabled,
                             ),
                           ],
                         );
@@ -252,11 +273,11 @@ class _HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(
-                    constraints.maxWidth > 810 ? 128 : 32,
-                    constraints.maxWidth > 810 ? 0 : 32,
-                    constraints.maxWidth > 810 ? 128 : 32,
+                    constraints.maxWidth > 750 ? 128 : 32,
+                    constraints.maxWidth > 750 ? 0 : 32,
+                    constraints.maxWidth > 750 ? 128 : 32,
                     0),
-                child: constraints.maxWidth > 810
+                child: constraints.maxWidth > 750
                     ? Row(
                         children: [
                           Container(
@@ -274,6 +295,7 @@ class _HomePageState extends State<HomePage> {
                                       style: TextStyle(
                                         fontWeight: FontWeight.w900,
                                         fontSize: 24,
+                                        // fontFamily: 'Arimo',
                                       ),
                                     ),
                                   ],
@@ -289,7 +311,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 AnimatedContainer(
                                   duration: Duration(milliseconds: 500),
-                                  height: 40,
+                                  height: 44,
                                   width: 1,
                                   color: Colors.black,
                                 ),
@@ -313,7 +335,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 AnimatedContainer(
                                   duration: Duration(milliseconds: 500),
-                                  height: 40,
+                                  height: 44,
                                   width: 1,
                                   color: Colors.transparent,
                                 ),
@@ -337,7 +359,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 AnimatedContainer(
                                   duration: Duration(milliseconds: 500),
-                                  height: 40,
+                                  height: 44,
                                   width: 1,
                                   color: Colors.transparent,
                                 ),
@@ -361,7 +383,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 AnimatedContainer(
                                   duration: Duration(milliseconds: 500),
-                                  height: 40,
+                                  height: 44,
                                   width: 1,
                                   color: Colors.transparent,
                                 ),
@@ -385,7 +407,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 AnimatedContainer(
                                   duration: Duration(milliseconds: 500),
-                                  height: 40,
+                                  height: 44,
                                   width: 1,
                                   color: Colors.transparent,
                                 ),
@@ -412,6 +434,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 24,
+                              // fontFamily: 'Arimo',
                             ),
                           ),
                           Spacer(),

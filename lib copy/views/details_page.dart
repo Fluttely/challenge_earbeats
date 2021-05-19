@@ -5,6 +5,7 @@ import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
 import "package:kevinkobori_challenge_earbeats/utils/consts.dart";
 import "package:kevinkobori_challenge_earbeats/views/complementation_page.dart";
 import 'package:delayed_display/delayed_display.dart';
+// import 'package:kevinkobori_challenge_earbeats/utils/remottely_icons_icons.dart';
 
 class DetailsPage extends StatefulWidget {
   DetailsPage({this.product});
@@ -26,25 +27,26 @@ class _DetailsPageState extends State<DetailsPage> {
           borderRadius: BorderRadius.all(
             Radius.circular(40),
           ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.centerLeft,
-          //   end: Alignment.centerRight,
-          //   colors: [
-          //     Colors.white.withOpacity(1),
-          //     Colors.white.withOpacity(0.9),
-          //     Colors.white.withOpacity(0.6),
-          //     Colors.white.withOpacity(0),
-          //   ],
-          // ),
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [
+              Colors.white.withOpacity(1),
+              Colors.white.withOpacity(0.9),
+              Colors.white.withOpacity(0.6),
+              Colors.white.withOpacity(0),
+            ],
+          ),
         ),
         margin: EdgeInsets.fromLTRB(
-            constraints.maxWidth > 1200 ? 128 : 0, 0, 0, 64),
-        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            constraints.maxWidth > 1200 ? 128 : 32, 32, 32, 64),
+        padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
         width: constraints.maxWidth > 760 ? 696 : 364,
-        height: constraints.maxWidth > 1200 ? 533 : 369,
+        height: constraints.maxWidth > 1200 ? 533 : 400,
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(height: 32),
               constraints.maxWidth > 760
                   ? Row(
                       children: [
@@ -61,7 +63,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   fontSize: 28,
                                   fontWeight: FontWeight.w900,
                                 ),
-                              ),
+                              ), //logo
                               SizedBox(
                                 height: 6,
                               ),
@@ -83,6 +85,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 maxLines: 4,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
+                                  // fontWeight: FontWeight.w500,
                                   fontSize: 16,
                                 ),
                               ),
@@ -103,6 +106,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 maxLines: 4,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
+                                  // fontWeight: FontWeight.w500,
                                   fontSize: 16,
                                 ),
                               ),
@@ -125,7 +129,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               fontSize: 28,
                               fontWeight: FontWeight.w900,
                             ),
-                          ),
+                          ), //logo
                           SizedBox(
                             height: 6,
                           ),
@@ -147,6 +151,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
+                              // fontWeight: FontWeight.w500,
                               fontSize: 16,
                             ),
                           ),
@@ -168,6 +173,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
+                              // fontWeight: FontWeight.w500,
                               fontSize: 16,
                             ),
                           ),
@@ -518,6 +524,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
+          // key: scaffoldKey,
           drawer: Drawer(
             child: Container(
               color: color2,
@@ -683,6 +690,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 24,
+                              // fontFamily: 'Arimo',
                             ),
                           ),
                           Spacer(),
@@ -777,7 +785,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   : Align(
                       alignment: Alignment.bottomCenter,
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: 32),
+                        padding: const EdgeInsets.only(bottom: 64),
                         child: RotatedBox(
                           quarterTurns: 1,
                           child: Image.asset(
