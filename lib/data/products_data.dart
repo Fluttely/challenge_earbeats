@@ -11,11 +11,11 @@ final productsJson = [
     "subtitle": [
       {
         "weight": FontWeight.w700,
-        "text": "Oficial PS5 ",
+        "text": "example1",
       },
       {
         "weight": FontWeight.w300,
-        "text": "Controller",
+        "text": "example2",
       },
     ],
     "color1": Colors.red,
@@ -33,14 +33,14 @@ final productsJson = [
     "price": 99.95,
     "desc":
         "Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset. Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset.",
-    "subtitle": [
+     "subtitle": [
       {
         "weight": FontWeight.w700,
-        "text": "Oficial PS5 ",
+        "text": "example1",
       },
       {
         "weight": FontWeight.w300,
-        "text": "Controller",
+        "text": "example2",
       },
     ],
     "color1": Colors.green,
@@ -58,14 +58,14 @@ final productsJson = [
     "price": 99.95,
     "desc":
         "Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset. Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset.",
-    "subtitle": [
+     "subtitle": [
       {
         "weight": FontWeight.w700,
-        "text": "Oficial PS5 ",
+        "text": "example1",
       },
       {
         "weight": FontWeight.w300,
-        "text": "Controller",
+        "text": "example2",
       },
     ],
     "color1": Colors.red,
@@ -83,14 +83,14 @@ final productsJson = [
     "price": 99.95,
     "desc":
         "Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset. Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset.",
-    "subtitle": [
+     "subtitle": [
       {
         "weight": FontWeight.w700,
-        "text": "Oficial PS5 ",
+        "text": "example1",
       },
       {
         "weight": FontWeight.w300,
-        "text": "Controller",
+        "text": "example2",
       },
     ],
     "color1": Colors.blue,
@@ -108,14 +108,14 @@ final productsJson = [
     "price": 99.95,
     "desc":
         "Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset. Dual Sense also adds a built-in microphone array, wich will enable players to easily chat with friends without a headset.",
-    "subtitle": [
+     "subtitle": [
       {
         "weight": FontWeight.w700,
-        "text": "Oficial PS5 ",
+        "text": "example1",
       },
       {
         "weight": FontWeight.w300,
-        "text": "Controller",
+        "text": "example2",
       },
     ],
     "color1": Colors.pink,

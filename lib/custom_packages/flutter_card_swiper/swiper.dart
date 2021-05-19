@@ -827,6 +827,7 @@ class _TinderState extends _CustomLayoutStateBase<_TinderSwiper> {
         ? Alignment.bottomCenter
         : Alignment.centerLeft;
 
+
     return Opacity(
       opacity: o,
       child: Transform.rotate(
@@ -859,84 +860,7 @@ class _StackViewState extends _CustomLayoutStateBase<_StackSwiper> {
     super.didChangeDependencies();
   }
 
-//   void _updateValues() {
-//     if (widget.scrollDirection == Axis.horizontal) {
-//       final double space = (_swiperWidth! - widget.itemWidth!) / 2;
-//       offsets = [
-//         _swiperWidth,
-// // -800,
-//         0.0,
-//         // 200,
-//         // 400,
-//         // 600,
-//         // -space / 3,
-//         // -space / 3 * 2,
-//         // -space,
-//             -space * 3 / 2,
-//         -space * 3,
-//         -space,
-//       ];
-//     } else {
-//       final double space = (_swiperHeight! - widget.itemHeight!) / 2;
-//       offsets = [
-//         _swiperHeight,
-//         // -800,
-//         0.0,
-//         //  200,
-//         // 400,
-//         // 600,
-//         -space * 3 / 2,
-//         -space * 3,
-//         -space,
-//       ];
-//     }
-//   }
-
-//   @override
-//   void didUpdateWidget(_StackSwiper oldWidget) {
-//     _updateValues();
-//     super.didUpdateWidget(oldWidget);
-//   }
-
-//   @override
-//   void afterRender() {
-//     super.afterRender();
-
-//     //length of the values array below
-//     _animationCount = 5;
-
-//     //Array below this line, '0' index is 1.0 ,witch is the first item show in swiper.
-//     _startIndex = -3;
-//     // scales = [2.0, 1.0, 0.8, 0.6, 0.4];
-//     // opacity = [0.0, 1.0, 0.4, 0.3, 0.2];
-//     scales = [0.4, 0.6, 0.8, 1.0, 2.0];
-//     opacity = [0.1, 0.2, 0.3, 1.0, 0.0];
-
-//     _updateValues();
-//   }
-
   void _updateValues() {
-    // print('_swiperWidth: ${_swiperWidth}');
-    // print('_swiperHeight: ${_swiperHeight}');
-    // widget.itemWidth: 1866 / 1.6 == 1166.25;
-    // _swiperWidth: 1866.666748046875;
-    // space = (_swiperWidth! - widget.itemWidth!) / 2 == (1866 - 1166) / 2 == 700;
-    // offsets = [
-    // -space + 50 == -700 + 50 == -650;
-    // (-space / 3 * 2) == (-700 / 3) * 2 == -466;
-    // (-space / 3) + 30 == (-700 / 3) + 30 == -263;
-    // 150;
-    // 1866;
-    // new: ---------------------------------------
-    // widget.itemWidth: 1866 / 1.6 == 1166.25;
-    // _swiperWidth: 1866.666748046875;
-    // space = (_swiperWidth! - widget.itemWidth!) / 2 == (1866 - 1166) / 2 == 700;
-    // offsets = [
-    // -space - 150 == -700 + 50 == -650;
-    // (-space / 3 * 2) == (-700 / 3) * 2 == -466;
-    // (-space / 3) + 30 == (-700 / 3) + 30 == -263;
-    // 150;
-    // 1866;
     if (widget.scrollDirection == Axis.horizontal) {
       final double space = (_swiperWidth! - widget.itemWidth!) / 2;
       offsets = [
@@ -946,22 +870,15 @@ class _StackViewState extends _CustomLayoutStateBase<_StackSwiper> {
         0.0,
         _swiperWidth
       ];
-      // // final double space = (_swiperWidth! - widget.itemWidth!) / 2;
-      // offsets = [
-      //   -850,
-      //   -600,
-      //   -300,
-      //   0.0,
-      //   1866
-      // ];
-      // final double space = (_swiperWidth! - widget.itemWidth!) / 2;
-      // offsets = [
-      //   -space + 50,
-      //   (-space / 3 * 2),
-      //   (-space / 3) + 30,
-      //   150.0,
-      //   _swiperWidth
-      // ];
+    } else { 
+      final double space = (_swiperHeight! - widget.itemHeight!) / 2;
+      offsets = [
+        -space - 100,
+        (-space / 3 * 2) - 140,
+        (-space / 3) - 200,
+        0.0,
+        _swiperHeight
+      ];
     }
   }
 
@@ -980,8 +897,6 @@ class _StackViewState extends _CustomLayoutStateBase<_StackSwiper> {
 
     //Array below this line, '0' index is 1.0 ,witch is the first item show in swiper.
     _startIndex = -3;
-    // scales = [0.4, 0.6, 0.8, 1.0, 2.0];
-    // opacity = [0.2, 0.3, 0.4, 1.0, 0.0];
     scales = [0.1, 0.2, 0.6, 1, 2.0];
     opacity = [0, 0.6, 0.8, 1.0, 0.0];
 

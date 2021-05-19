@@ -2,9 +2,7 @@ import "package:flutter/material.dart";
 import "dart:ui";
 import "package:flutter_card_swipper/flutter_card_swiper.dart";
 import "package:kevinkobori_challenge_earbeats/widgets/product_card.dart";
-import "package:flutter_neumorphic/flutter_neumorphic.dart";
 import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
-import "package:kevinkobori_challenge_earbeats/utils/consts.dart";
 import "package:kevinkobori_challenge_earbeats/providers/product_provider.dart";
 import 'package:delayed_display/delayed_display.dart';
 import "package:kevinkobori_challenge_earbeats/views/details_page.dart";
@@ -17,13 +15,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   SwiperController _swiperController = SwiperController();
   var _scaffoldKey = GlobalKey<ScaffoldState>();
-  List<ProductModel> productsList = ProductsState().categoryPS5Controls;
+  List<ProductModel> productsList = ProductsState().categoryEarphones;
   int indexPage = 0;
   int indexType = 0;
   bool isEnabled = true;
   bool isHover = false;
-  bool isHoverPrevious = false;
-  bool isHoverNext = false;
+  
   @override
   void initState() {
     _swiperController.move(0);
@@ -71,16 +68,6 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.all(
             Radius.circular(40),
           ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.centerLeft,
-          //   end: Alignment.centerRight,
-          //   colors: [
-          //     Colors.white.withOpacity(0),
-          //     Colors.white.withOpacity(0.6),
-          //     Colors.white.withOpacity(0.9),
-          //     Colors.white.withOpacity(1),
-          //   ],
-          // ),
         ),
         margin: EdgeInsets.fromLTRB(
             32, 32, constraints.maxWidth > 1200 ? 96 : 32, 64),
@@ -192,7 +179,7 @@ class _HomePageState extends State<HomePage> {
           key: _scaffoldKey,
           drawer: Drawer(
             child: Container(
-              color: color2,
+              color: Colors.grey[300],
               height: MediaQuery.of(context).size.height,
             ),
           ),

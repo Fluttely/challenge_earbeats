@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import "dart:ui";
-import "package:flutter_neumorphic/flutter_neumorphic.dart";
 import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
-import "package:kevinkobori_challenge_earbeats/utils/consts.dart";
 import 'package:delayed_display/delayed_display.dart';
 
 class ComplementationPage extends StatefulWidget {
@@ -28,16 +26,6 @@ class _ComplementationPageState extends State<ComplementationPage> {
           borderRadius: BorderRadius.all(
             Radius.circular(40),
           ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.centerLeft,
-          //   end: Alignment.centerRight,
-          //   colors: [
-          //     Colors.white.withOpacity(1),
-          //     Colors.white.withOpacity(0.9),
-          //     Colors.white.withOpacity(0.6),
-          //     Colors.white.withOpacity(0),
-          //   ],
-          // ),
         ),
         margin: EdgeInsets.fromLTRB(
             constraints.maxWidth > 1200 ? 96 : 32, 32, 32, 100),
@@ -133,24 +121,13 @@ class _ComplementationPageState extends State<ComplementationPage> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
-          drawer: Drawer(
-            child: Container(
-              color: color2,
-              height: MediaQuery.of(context).size.height,
-            ),
-          ),
           extendBody: true,
           body: Stack(
             children: [
               Positioned.fill(
-                child: DelayedDisplay(
-                  delay: Duration(milliseconds: 1000),
-                  fadingDuration: Duration(milliseconds: 500),
-                  slidingBeginOffset: Offset(0, -0.1),
-                  child: Image.asset(
-                    'assets/images/bg.png',
-                    fit: BoxFit.cover,
-                  ),
+                child: Image.asset(
+                  'assets/images/bg.png',
+                  fit: BoxFit.cover,
                 ),
               ),
               Container(

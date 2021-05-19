@@ -8,14 +8,8 @@ class ProductsState {
   final ProductModel product3 = ProductModel.fromMap(productsJson[2]);
   final ProductModel product4 = ProductModel.fromMap(productsJson[3]);
   final ProductModel product5 = ProductModel.fromMap(productsJson[4]);
-  List<ProductModel> get categoryPS5Controls =>
+  List<ProductModel> get categoryEarphones =>
       [product1, product2, product3, product4, product5];
-
-  // final ProductModel product4 = ProductModel.fromMap(productsJson[4]);
-  // final ProductModel product5 = ProductModel.fromMap(productsJson[5]);
-  // final ProductModel product6 = ProductModel.fromMap(productsJson[6]);
-  // final ProductModel product7 = ProductModel.fromMap(productsJson[7]);
-  // List<ProductModel> get categoryPS5Consoles => [product4, product5, product6, product7];
 }
 
 class CategoryProducts {
@@ -26,11 +20,7 @@ class CategoryProducts {
 
 final categoriesProducts = [
   CategoryProducts(
-    title: "PS5 Controls",
-    items: ProductsState().categoryPS5Controls,
+    title: "Earphones",
+    items: ProductsState().categoryEarphones,
   ),
-  // CategoryProducts(
-  //   title: "PS5 Consoles",
-  //   items: ProductsState().categoryPS5Consoles,
-  // ),
 ];

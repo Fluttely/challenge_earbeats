@@ -1,8 +1,6 @@
 import "dart:ui";
 import "package:flutter/material.dart";
-import "package:flutter_neumorphic/flutter_neumorphic.dart";
 import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
-import "package:kevinkobori_challenge_earbeats/utils/consts.dart";
 import "package:kevinkobori_challenge_earbeats/views/complementation_page.dart";
 import 'package:delayed_display/delayed_display.dart';
 
@@ -26,16 +24,6 @@ class _DetailsPageState extends State<DetailsPage> {
           borderRadius: BorderRadius.all(
             Radius.circular(40),
           ),
-          // gradient: LinearGradient(
-          //   begin: Alignment.centerLeft,
-          //   end: Alignment.centerRight,
-          //   colors: [
-          //     Colors.white.withOpacity(1),
-          //     Colors.white.withOpacity(0.9),
-          //     Colors.white.withOpacity(0.6),
-          //     Colors.white.withOpacity(0),
-          //   ],
-          // ),
         ),
         margin: EdgeInsets.fromLTRB(
             constraints.maxWidth > 1200 ? 128 : 0, 0, 0, 64),
@@ -518,12 +506,6 @@ class _DetailsPageState extends State<DetailsPage> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
-          drawer: Drawer(
-            child: Container(
-              color: color2,
-              height: MediaQuery.of(context).size.height,
-            ),
-          ),
           extendBody: true,
           body: Stack(
             children: [

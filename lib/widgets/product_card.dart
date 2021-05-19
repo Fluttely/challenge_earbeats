@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import "dart:ui";
 import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
-// import 'package:kevinkobori_challenge_earbeats/views/body_container.dart';
 import 'package:delayed_display/delayed_display.dart';
 
 class ProductCard extends StatefulWidget {
@@ -88,51 +87,6 @@ class _ProductCardState extends State<ProductCard> {
                       ),
                     ),
         ),
-        // Positioned.fill(
-        //   child: Hero(
-        //     tag: widget.productsList[widget.index].id,
-        //     child: Image.asset(
-        //       widget.productsList[widget.index].image,
-        //     ),
-        //   ),
-        // ),
-        // AnimatedContainer(
-        //   duration: Duration(milliseconds: 0),
-        //   height: MediaQuery.of(context).size.height,
-        //   width: MediaQuery.of(context).size.height,
-        //   child: widget.currentIndex == widget.index ||
-        //           widget.currentIndex == widget.index - 1 ||
-        //           widget.currentIndex - widget.productsList.length ==
-        //               widget.index - 1
-        //       ? BackdropFilter(
-        //           filter: ImageFilter.blur(
-        //             sigmaX: 1,
-        //             sigmaY: 1,
-        //           ),
-        //           child: Container(
-        //             color: Colors.transparent,
-        //           ),
-        //         )
-        //       : i1 == widget.index
-        //           ? BackdropFilter(
-        //               filter: ImageFilter.blur(
-        //                 sigmaX: 100,
-        //                 sigmaY: 100,
-        //               ),
-        //               child: Container(
-        //                 color: Colors.transparent,
-        //               ),
-        //             )
-        //           : BackdropFilter(
-        //               filter: ImageFilter.blur(
-        //                 sigmaX: 100,
-        //                 sigmaY: 100,
-        //               ),
-        //               child: Container(
-        //                 color: Colors.transparent,
-        //               ),
-        //             ),
-        // ),
         Container(
           width: MediaQuery.of(context).size.height,
           height: MediaQuery.of(context).size.height,
@@ -192,7 +146,6 @@ class _ProductCardState extends State<ProductCard> {
                             isHoverNext = false;
                           });
                           widget.onTapNext();
-                          // waitToPressAgain();
                         }
                       : () {},
                   child: isHoverNext
