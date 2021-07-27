@@ -6,6 +6,7 @@ import "package:kevinkobori_challenge_earbeats/models/product_model.dart";
 import "package:kevinkobori_challenge_earbeats/providers/product_provider.dart";
 import 'package:delayed_display/delayed_display.dart';
 import "package:kevinkobori_challenge_earbeats/views/details_page.dart";
+import 'package:kevinkobori_challenge_earbeats/widgets/quantity.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,11 +21,16 @@ class _HomePageState extends State<HomePage> {
   int indexType = 0;
   bool isEnabled = true;
   bool isHover = false;
-  
+
   @override
   void initState() {
     _swiperController.move(0);
     super.initState();
+    _swiperController.addListener(() {
+      // setState(() {
+        indexType = _swiperController.index;
+      // });
+    });
   }
 
   @override
@@ -34,13 +40,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   waitToPressAgain() {
-    setState(() {
-      isEnabled = false;
-    });
+    // setState(() {
+    //   isEnabled = false;
+    // });
     Future.delayed(Duration(milliseconds: 1201)).then((value) {
-      setState(() {
-        isEnabled = true;
-      });
+      // setState(() {
+      //   isEnabled = true;
+      // });
     });
   }
 
@@ -175,6 +181,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
+        double _swiperWidth = MediaQuery.of(context).size.width;
+        // final double space = (_swiperWidth! - widget.itemWidth!) / 2;
+        double itemWidth = constraints.maxWidth > 900
+            ? MediaQuery.of(context).size.height / 1.2
+            : MediaQuery.of(context).size.width / 1.2;
+        double space = (_swiperWidth - itemWidth) / 2;
         return Scaffold(
           key: _scaffoldKey,
           drawer: Drawer(
@@ -200,12 +212,27 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.transparent,
                     child: Swiper(
                       onIndexChanged: (index) {
-                        setState(() {
-                          _swiperController.index = index;
-                        });
+                        // setState(() {
+                          indexType = index;
+                        // });
+                        // _swiperController.index = index;
                       },
                       physics: const NeverScrollableScrollPhysics(),
-                      layout: SwiperLayout.STACK,
+                      layout: SwiperLayout.CUSTOM,
+                      customLayoutOption:
+                          CustomLayoutOption(startIndex: -1, stateCount: 5)
+                              .addTranslate([
+                        Offset(-space - 100, 0.0),
+                        Offset((-space / 3 * 2) - 140, 0.0),
+                        Offset((-space / 3) - 200, 0.0),
+                        Offset(0.0, 0.0),
+                        Offset(_swiperWidth, 0.0),
+                      ]).addScale(
+                        [0.1, 0.2, 0.6, 1, 2.0],
+                        Alignment.centerRight,
+                      ).addOpacity(
+                        [0, 0.6, 0.8, 1.0, 0.0],
+                      ),
                       itemHeight: constraints.maxWidth > 900
                           ? MediaQuery.of(context).size.height / 1.2
                           : MediaQuery.of(context).size.width / 1.2,
@@ -414,36 +441,9 @@ class _HomePageState extends State<HomePage> {
                       0,
                       constraints.maxWidth > 750 ? 128 : 32,
                       constraints.maxWidth > 750 ? 64 : 32),
-                  child: Row(
-                    children: [
-                      RichText(
-                        text: TextSpan(
-                          text: '0${_swiperController.index + 1} ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 24,
-                            fontFamily: 'Nunito-sans',
-                          ),
-                          children: [
-                            TextSpan(
-                              text: '/ 0${productsList.length}',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 18,
-                                fontFamily: 'Quicksand',
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Spacer(),
-                      Text(
-                        'copyright - earbeats | 2020',
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
+                  child: Quantity(
+                    swiperControllerIndex: indexType, //_swiperController.index,
+                    productsListLength: productsList.length,
                   ),
                 ),
               ),
